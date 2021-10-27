@@ -1,0 +1,21 @@
+#  _             _      _
+# | |           | |    | |
+# | |      __   | |__  | |__ __    __
+# | |     / _ \ | ´_ \ | ´_ \\ \  / /
+# | |____| (_) || |_) || |_) |\ \/ /
+# \_____/ \___/ |_,__/ |_,__/  \  /
+#                              / /
+#       		              /_/
+# LobbySystem by Waischbrot
+# Version: 1.0
+# Thanks for buying!!!!
+
+#Message sent to player on join!
+joinmessage:
+  enabled: true
+  permission: 'lobby.joinmessage'
+  # You can use color codes and placeholders from PlaceholderAPI here too (:
+  message:
+    - '&fThanks for using my &bLobbysystem&f!'
+    - '&fYou can alway change or disable this'
+    - '&fmessage in &6config.yml.'
