@@ -42,8 +42,8 @@ public class HiderGUI implements Listener {
         inv = Bukkit.createInventory(null, InventoryType.BREWING, "§0➥ Playerhider");
 
         List<String> infolore = new ArrayList<>();
-        infolore.add("§7Hier kannst du unsere Spielmodi");
-        infolore.add("§7finden, und hast einen Überblick!");
+        infolore.add("§7Hier kannst du Spieler nach");
+        infolore.add("§7belieben deaktivieren ^^");
         inv.setItem(4, new ItemBuilder(Material.WRITABLE_BOOK).setDisplayName("§8> §6Information").setLore(infolore).build());
 
         inv.setItem(3, new ItemBuilder(Material.LIME_DYE).setDisplayName("§aAlle anzeigen").build());

@@ -27,7 +27,7 @@ public class NavigatorGUI implements Listener {
     public void openInventory(PlayerInteractEvent event) {
         Player player = event.getPlayer();
         if (event.getAction().equals(Action.RIGHT_CLICK_AIR) || event.getAction().equals(Action.RIGHT_CLICK_BLOCK)) {
-            if (event.getItem().getItemMeta().getDisplayName().equals("§bNavigator §8× §7Rechtsklick")) {
+            if (event.getMaterial().equals(Material.COMPASS)) {
                 GUI();
 
                 player.openInventory(inv);
@@ -72,6 +72,7 @@ public class NavigatorGUI implements Listener {
 
         //Spawn
         if (slot == 40) {
+
             player.closeInventory();
         }
 
