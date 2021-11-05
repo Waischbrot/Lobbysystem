@@ -2,6 +2,7 @@ package de.rubymc.lobbysystem;
 
 import de.rubymc.lobbysystem.commands.LobbyCommand;
 import de.rubymc.lobbysystem.features.JoinMessage;
+import de.rubymc.lobbysystem.features.VoidTeleport;
 import de.rubymc.lobbysystem.features.XPBar;
 import de.rubymc.lobbysystem.gui.*;
 import de.rubymc.lobbysystem.listener.*;
@@ -79,6 +80,7 @@ public final class Main extends JavaPlugin {
 
         Bukkit.getPluginManager().registerEvents(new JoinMessage(), this);
         Bukkit.getPluginManager().registerEvents(new XPBar(), this);
+        Bukkit.getPluginManager().registerEvents(new VoidTeleport(), this);
     }
 
     private void papiRegistration() {
