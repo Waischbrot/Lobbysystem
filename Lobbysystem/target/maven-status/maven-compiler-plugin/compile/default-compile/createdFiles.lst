@@ -1,0 +1,17 @@
+de\rubymc\lobbysystem\listener\MainListener.class
+de\rubymc\lobbysystem\listener\JoinQuit.class
+de\rubymc\lobbysystem\listener\ChatEvent.class
+de\rubymc\lobbysystem\util\Configmanager.class
+de\rubymc\lobbysystem\gui\HiderGUI.class
+de\rubymc\lobbysystem\listener\MenuListener.class
+de\rubymc\lobbysystem\commands\Build.class
+de\rubymc\lobbysystem\util\ItemBuilder.class
+de\rubymc\lobbysystem\gui\Inventories.class
+de\rubymc\lobbysystem\commands\LobbyCommand.class
+de\rubymc\lobbysystem\listener\CookieClicker.class
+de\rubymc\lobbysystem\listener\ScoreBoard.class
+de\rubymc\lobbysystem\features\DoubleJump.class
+de\rubymc\lobbysystem\Main.class
+de\rubymc\lobbysystem\listener\BauEvent.class
+de\rubymc\lobbysystem\features\VoidTeleport.class
+de\rubymc\lobbysystem\gui\NavigatorGUI.class

@@ -1,0 +1,13 @@
+name: Lobbysystem
+version: '1.1'
+main: de.rubymc.lobbysystem.Main
+api-version: 1.16
+authors: [ Waischbrot ]
+description: Lobbysystem ^^
+website: https://rubymc.de
+
+softdepend: [PlaceholderAPI, SpigotAPI]
+
+commands:
+  build:
+
