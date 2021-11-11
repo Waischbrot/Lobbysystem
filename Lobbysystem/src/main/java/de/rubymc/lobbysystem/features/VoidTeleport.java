@@ -21,13 +21,7 @@ public class VoidTeleport implements Listener {
         if (!player.hasPermission("lobby.build") || !player.getGameMode().equals(GameMode.CREATIVE)) {
             if (location.getY() < 34.0) {
 
-                location.setX(config.getLong("warps.spawn.location.X"));
-                location.setY(config.getLong("warps.spawn.location.Y"));
-                location.setZ(config.getLong("warps.spawn.location.Z"));
-                location.setYaw(config.getLong("warps.spawn.location.YAW"));
-                location.setPitch(config.getLong("warps.spawn.location.PITCH"));
-
-                player.teleport(location);
+                player.performCommand("spawn");
             }
         }
     }
