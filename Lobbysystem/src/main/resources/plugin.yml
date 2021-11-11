@@ -10,4 +10,12 @@ softdepend: [PlaceholderAPI, SpigotAPI]
 
 commands:
   build:
-
+  removewarp:
+    aliases: [ delwarp, remwarp]
+  rubine:
+    aliases: [coins, rubys]
+  setspawn:
+  spawn:
+  setwarp:
+    aliases: [createwarp]
+  warp:
