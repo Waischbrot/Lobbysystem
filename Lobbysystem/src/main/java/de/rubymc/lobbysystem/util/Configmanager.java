@@ -1,17 +1,27 @@
 package de.rubymc.lobbysystem.util;
 
 import de.rubymc.lobbysystem.Main;
+import org.bukkit.Bukkit;
 import org.bukkit.Location;
+import org.bukkit.World;
 import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.Plugin;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Configmanager {
 
+    public static File file = new File("plugins/Lobbysystem/warps.yml");
+    public static YamlConfiguration cfg;
     private static Plugin plugin = Main.plugin;
+
+    static {
+        cfg = YamlConfiguration.loadConfiguration(file);
+    }
 
     public static void startup(){
         File configFile = new File(plugin.getDataFolder(), "config.yml");
@@ -58,41 +68,33 @@ public class Configmanager {
             c.set("messages.commands.reload", "Du hast das Plugin erfolgreich neugeladen!");
             c.set("messages.commands.noperm", "&cDazu hast du leider keine Rechte!!!");
 
-            //Warps
-            c.createSection("warps");
-
             plugin.saveConfig();
         }
     }
 
-    public static void reloadConfiguration() {
-        plugin.reloadConfig();
+    public static void createConfigLocation(Location loc, String path, File file, YamlConfiguration cfg) {
+        cfg.set(path + ".World", loc.getWorld().getName());
+        cfg.set(path + ".X", loc.getX());
+        cfg.set(path + ".Y", loc.getY());
+        cfg.set(path + ".Z", loc.getZ());
+        cfg.set(path + ".Yaw", loc.getYaw());
+        cfg.set(path + ".Pitch", loc.getPitch());
+
+        try {
+            cfg.save(file);
+        } catch (IOException var5) {
+            var5.printStackTrace();
+        }
+
     }
 
-    public static void addWarp(String name, Location location){
-        FileConfiguration config = plugin.getConfig();
-        String configPath = "warps." + name;
-        config.createSection(configPath);
-        config.createSection(configPath + ".location");
-        config.createSection(configPath + ".location.X");
-        config.createSection(configPath + ".location.Y");
-        config.createSection(configPath + ".location.Z");
-        config.createSection(configPath + ".location.YAW");
-        config.createSection(configPath + ".location.PITCH");
-
-        config.set(configPath + ".name", name);
-        config.set(configPath + ".location.X", location.getX());
-        config.set(configPath + ".location.Y", location.getY());
-        config.set(configPath + ".location.Z", location.getZ());
-        config.set(configPath + ".location.YAW", location.getYaw());
-        config.set(configPath + ".location.PITCH", location.getPitch());
-        config.set(configPath + ".location.WORLD", location.getWorld().getName());
-        plugin.saveConfig();
-    }
-
-    public static void removeWarp(String name){
-        FileConfiguration config = plugin.getConfig();
-        config.set("warps." + name, null);
-        plugin.saveConfig();
+    public static Location getConfigLocation(String path, YamlConfiguration cfg) {
+        World w = Bukkit.getWorld(cfg.getString(path + ".World"));
+        double x = cfg.getDouble(path + ".X");
+        double y = cfg.getDouble(path + ".Y");
+        double z = cfg.getDouble(path + ".Z");
+        float yaw = (float)cfg.getDouble(path + ".Yaw");
+        float pitch = (float)cfg.getDouble(path + ".Pitch");
+        return new Location(w, x, y, z, yaw, pitch);
     }
 }
