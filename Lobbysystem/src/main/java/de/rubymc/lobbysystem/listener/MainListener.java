@@ -130,6 +130,7 @@ public class MainListener implements Listener {
         }
     }
 
+    @EventHandler
     public void invClose(InventoryCloseEvent event) {
         Player player = (Player) event.getPlayer();
         Inventory inventory = player.getInventory();
