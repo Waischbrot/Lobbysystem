@@ -21,22 +21,22 @@ public class MenuListener implements Listener {
         Player player = event.getPlayer();
 
         if (event.getAction() == Action.RIGHT_CLICK_AIR || event.getAction() == Action.RIGHT_CLICK_BLOCK) {
-            if (event.getItem().getItemMeta().getDisplayName().equals("§bNavigator §8× §7Rechtsklick")) {
+            if (player.getItemInHand().getItemMeta().getDisplayName().equals("§bNavigator §8× §7Rechtsklick")) {
                 Inventories.openNavigator(player);
             }
-            else if (event.getItem().getItemMeta().getDisplayName().equals("§bProfil §8× §7Rechtsklick")) {
+            else if (player.getItemInHand().getItemMeta().getDisplayName().equals("§bProfil §8× §7Rechtsklick")) {
                 Inventories.profileGUI(player);
             }
             else if (event.getMaterial() == Material.LIME_DYE && event.getMaterial() == Material.RED_DYE && event.getMaterial() == Material.YELLOW_DYE && event.getMaterial() == Material.GREEN_DYE && event.getMaterial() == Material.ORANGE_DYE && event.getMaterial() == Material.BLACK_DYE && event.getMaterial() == Material.PURPLE_DYE) {
                 Inventories.hiderGUI(player);
             }
-            else if (event.getItem().getItemMeta().getDisplayName().equals("§bKosmetik §8× §7Rechtsklick")) {
+            else if (player.getItemInHand().getItemMeta().getDisplayName().equals("§bKosmetik §8× §7Rechtsklick")) {
                 Inventories.effectGUI(player);
             }
-            else if (event.getItem().getItemMeta().getDisplayName().equals("§bEinstellungen §8× §7Rechtsklick")) {
+            else if (player.getItemInHand().getItemMeta().getDisplayName().equals("§bEinstellungen §8× §7Rechtsklick")) {
                 Inventories.settingsGUI(player);
             }
-            else if (event.getItem().getItemMeta().getDisplayName().equals("§eLobbyswitcher §8× §7Rechtsklick")) {
+            else if (player.getItemInHand().getItemMeta().getDisplayName().equals("§eLobbyswitcher §8× §7Rechtsklick")) {
                 Inventories.openLobbyswitcher(player);
             }
         }
@@ -80,16 +80,16 @@ public class MenuListener implements Listener {
         //Navigatoritems
         if (event.getClickedInventory().getItem(40).getType() == Material.SNOWBALL) {
             if (slot == 11) {
-                player.performCommand("warp freebuild");
+                player.performCommand("warp Freebuild");
             }
             else if (slot == 29) {
-                player.performCommand("warp bauserver1");
+                player.performCommand("warp Bauserver1");
             }
             else if (slot == 31) {
-                player.performCommand("warp bauserver2");
+                player.performCommand("warp Bauserver2");
             }
             else if (slot == 33) {
-                player.performCommand("warp bauserver3");
+                player.performCommand("warp Bauserver3");
             }
             else if (slot == 13 || slot == 15 || slot == 21 || slot == 23) {
                 String maintenance = ChatColor.translateAlternateColorCodes('&', config.getString("messages.games.maintenance"));
