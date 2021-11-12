@@ -6,6 +6,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.inventory.InventoryClickEvent;
@@ -15,31 +16,33 @@ public class MenuListener implements Listener {
 
     FileConfiguration config = Main.plugin.getConfig();
 
+    @EventHandler
     public void onInteract(PlayerInteractEvent event) {
         Player player = event.getPlayer();
 
-        if (event.getAction() == Action.RIGHT_CLICK_AIR && event.getAction() == Action.RIGHT_CLICK_BLOCK) {
-            if (event.getItem().getItemMeta().getDisplayName().equalsIgnoreCase("§bNavigator §8× §7Rechtsklick")) {
+        if (event.getAction() == Action.RIGHT_CLICK_AIR || event.getAction() == Action.RIGHT_CLICK_BLOCK) {
+            if (event.getItem().getItemMeta().getDisplayName().equals("§bNavigator §8× §7Rechtsklick")) {
                 Inventories.openNavigator(player);
             }
-            else if (event.getItem().getItemMeta().getDisplayName().equalsIgnoreCase("§bProfil §8× §7Rechtsklick")) {
+            else if (event.getItem().getItemMeta().getDisplayName().equals("§bProfil §8× §7Rechtsklick")) {
                 Inventories.profileGUI(player);
             }
             else if (event.getMaterial() == Material.LIME_DYE && event.getMaterial() == Material.RED_DYE && event.getMaterial() == Material.YELLOW_DYE && event.getMaterial() == Material.GREEN_DYE && event.getMaterial() == Material.ORANGE_DYE && event.getMaterial() == Material.BLACK_DYE && event.getMaterial() == Material.PURPLE_DYE) {
                 Inventories.hiderGUI(player);
             }
-            else if (event.getItem().getItemMeta().getDisplayName().equalsIgnoreCase("§bKosmetik §8× §7Rechtsklick")) {
+            else if (event.getItem().getItemMeta().getDisplayName().equals("§bKosmetik §8× §7Rechtsklick")) {
                 Inventories.effectGUI(player);
             }
-            else if (event.getItem().getItemMeta().getDisplayName().equalsIgnoreCase("§bEinstellungen §8× §7Rechtsklick")) {
+            else if (event.getItem().getItemMeta().getDisplayName().equals("§bEinstellungen §8× §7Rechtsklick")) {
                 Inventories.settingsGUI(player);
             }
-            else if (event.getItem().getItemMeta().getDisplayName().equalsIgnoreCase("§eLobbyswitcher §8× §7Rechtsklick")) {
+            else if (event.getItem().getItemMeta().getDisplayName().equals("§eLobbyswitcher §8× §7Rechtsklick")) {
                 Inventories.openLobbyswitcher(player);
             }
         }
     }
 
+    @EventHandler
     public void onClick(InventoryClickEvent event) {
         Player player = (Player) event.getWhoClicked();
         int slot = event.getRawSlot();
