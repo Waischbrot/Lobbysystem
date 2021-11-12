@@ -27,7 +27,7 @@ public class MenuListener implements Listener {
             else if (player.getItemInHand().getItemMeta().getDisplayName().equals("§bProfil §8× §7Rechtsklick")) {
                 Inventories.profileGUI(player);
             }
-            else if (event.getMaterial() == Material.LIME_DYE && event.getMaterial() == Material.RED_DYE && event.getMaterial() == Material.YELLOW_DYE && event.getMaterial() == Material.GREEN_DYE && event.getMaterial() == Material.ORANGE_DYE && event.getMaterial() == Material.BLACK_DYE && event.getMaterial() == Material.PURPLE_DYE) {
+            else if (player.getItemInHand().getItemMeta().getDisplayName().equals("§bPlayerhider §8× §aAlle")) {
                 Inventories.hiderGUI(player);
             }
             else if (player.getItemInHand().getItemMeta().getDisplayName().equals("§bKosmetik §8× §7Rechtsklick")) {
@@ -51,51 +51,51 @@ public class MenuListener implements Listener {
         //Inventaritems
         if (event.getClickedInventory() == player.getInventory()) {
             //Socials
-            if (slot == 20 && event.getCurrentItem().getType() == Material.PLAYER_HEAD) {
+            if (slot == 20) {
                 String instagram = ChatColor.translateAlternateColorCodes('&', config.getString("messages.socials.instagram"));
                 player.sendMessage(prefix + instagram);
             }
-            else if (slot == 22 && event.getCurrentItem().getType() == Material.PLAYER_HEAD) {
+            else if (slot == 22) {
                 String discord = ChatColor.translateAlternateColorCodes('&', config.getString("messages.socials.discord"));
                 player.sendMessage(prefix + discord);
             }
-            else if (slot == 24 && event.getCurrentItem().getType() == Material.PLAYER_HEAD) {
+            else if (slot == 24) {
                 String website = ChatColor.translateAlternateColorCodes('&', config.getString("messages.socials.website"));
                 player.sendMessage(prefix + website);
             }
             //Cosmetics
-            else if (slot == 19 && event.getCurrentItem().getType() == Material.PLAYER_HEAD) {
+            else if (slot == 19) {
                 Inventories.effectGUI(player);
             }
-            else if (slot == 21 && event.getCurrentItem().getType() == Material.IRON_CHESTPLATE) {
+            else if (slot == 21) {
                 Inventories.armorGUI(player);
             }
-            else if (slot == 23 && event.getCurrentItem().getType() == Material.FISHING_ROD) {
+            else if (slot == 23) {
                 Inventories.gadgetsGUI(player);
             }
-            else if (slot == 25 && event.getCurrentItem().getType() == Material.PLAYER_HEAD) {
+            else if (slot == 25) {
                 Inventories.petsGUI(player);
             }
         }
-        //Navigatoritems
-        if (event.getClickedInventory().getItem(40).getType() == Material.SNOWBALL) {
-            if (slot == 11) {
+        else {
+            //Navigatoritems
+            if (event.getCurrentItem().getItemMeta().getDisplayName().equals("§a§lFree§2§lbuild")) {
                 player.performCommand("warp Freebuild");
             }
-            else if (slot == 29) {
+            else if (event.getCurrentItem().getItemMeta().getDisplayName().equals("§f§lBauserver §e§l1.8")) {
                 player.performCommand("warp Bauserver1");
             }
-            else if (slot == 31) {
+            else if (event.getCurrentItem().getItemMeta().getDisplayName().equals("§b§lBauserver §e§l1.16")) {
                 player.performCommand("warp Bauserver2");
             }
-            else if (slot == 33) {
+            else if (event.getCurrentItem().getItemMeta().getDisplayName().equals("§6§lBauserver §e§l1.12")) {
                 player.performCommand("warp Bauserver3");
             }
-            else if (slot == 13 || slot == 15 || slot == 21 || slot == 23) {
+            else if (event.getCurrentItem().getItemMeta().getDisplayName().equals("§cKommt bald...")) {
                 String maintenance = ChatColor.translateAlternateColorCodes('&', config.getString("messages.games.maintenance"));
                 player.sendMessage(prefix + maintenance);
             }
-            else if (slot == 40) {
+            else if (event.getCurrentItem().getItemMeta().getDisplayName().equals("§8> §bSpawn")) {
                 player.performCommand("spawn");
             }
         }
